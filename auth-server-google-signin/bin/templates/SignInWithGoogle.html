@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://apis.google.com/js/client:platform.js"
+	async="async" defer="defer"></script>
+	  <link rel="icon" href="data:,"/>
+</head>
+<body>
+	Please sign in with Google account
+	<br />
+	<br />
+	<!-- <span class="g-signin" data-callback="googleSignInCallback"
+          th:attr="data-clientid=1008588472784-hakaj8jvf080icbtgbsvhsvp4vtf0873.apps.googleusercontent.com"
+          data-cookiepolicy="single_host_origin"
+          data-scope="email">
+    </span>  -->
+	<span class="g-signin" data-callback="googleSignInCallback"
+		th:attr="data-clientid=844471993964-oqhq1mhd5m48t13rk7cqpa1ae6v1v7ms.apps.googleusercontent.com"
+		data-cookiepolicy="single_host_origin" data-scope="email"> </span>
+
+
+	<script>
+		function googleSignInCallback(response) {
+
+			if (response.access_token) {
+				$.get('login', {
+					'access-token' : response.access_token
+				}).done(successCallBack).fail(errorCallBack);
+			}
+		}
+
+		function successCallBack(redirectURI) {
+			console.log(redirectURI);
+			window.location.href = redirectURI;
+		}
+
+		function errorCallBack() {
+			console.log("Something went wrong!")
+		}
+	</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+server:
+    port: 9999
+spring:
+    datasource:
+        driverClassName: org.postgresql.Driver
+        url: jdbc:postgresql://localhost:5432/oauth_db
+        username: postgres
+        password: po$tGre@fs1$
